@@ -12,7 +12,7 @@ type GameState =
     | North_won
 
 type Player = {
- houses_number : int*int*int*int*int*int   //Each player has six 
+ houses_number : int*int*int*int*int*int   //Each player has six houses
  captured : int
 }
  
