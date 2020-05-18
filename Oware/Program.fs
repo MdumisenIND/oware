@@ -4,7 +4,7 @@ type StartingPosition =
     | South
     | North
 
-type GameState = 
+type GameState =
     | South's_turn
     | North's_turn
     | Game_Ended_in_a_draw
@@ -17,12 +17,12 @@ type Player = {
 }
  
 type Board = {
- player1: Player
+ player1: Player 
  player2: Player  
  gameState: GameState 
 }
 
-let getSeeds n board = failwith "Not implemented"
+let getSeeds n board =
  let (a,b,c,d,f,e),(q,w,r,t,y,u)= board.player1.houses_number,board.player2.houses_number
  match n with 
     |1-> a
@@ -161,7 +161,7 @@ let correctHouse board latestHouseNum  =
                 |_->
                    scoreUpdate b acc
     ToThinkAbout latestHouseNum board 0
-    
+
 let useHouse n board = 
   let seedCount = getSeeds n board
   let rig=house n board
@@ -197,14 +197,14 @@ let useHouse n board =
 
   let nB= move (n+1) seedCount newBoard n 
   {nB with gameState= turn nB}
-
-let start position = failwith "Not implemented"
+      
+let start position = 
   let southplayer= {houses_number=(4,4,4,4,4,4);captured=0}
   let northplayer= {houses_number=(4,4,4,4,4,4);captured=0}
   let r=match position with 
          |South->South's_turn
          |North->North's_turn
-  {Board.player1=southplayer;Board.player2=northplayer;gameState= r}
+  {Board.player1=southplayer;Board.player2=northplayer;gameState= r}           //Setting up the board... 
 
 let score board = board.player1.captured,board.player2.captured
 
